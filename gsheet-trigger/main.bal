@@ -54,6 +54,8 @@ service / on new http:Listener(9090) {
 
         // io:println("Got event: ", gsheetEvent);
 
+        io:println("prices URL: ", priceEndpoint);
+
         // 2. Get item price from golang service
         http:Response priceRes = check priceClient->/.get();
         json priceR = check priceRes.getJsonPayload();
